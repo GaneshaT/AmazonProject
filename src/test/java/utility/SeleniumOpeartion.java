@@ -39,6 +39,23 @@ public class SeleniumOpeartion
 		
 		driver.findElement(By.xpath(path)).sendKeys(text);
 	}
+	public static void validationByGetText(Object[] inputparameters)
+	{
+		String text=(String) inputparameters[0];
+		String path=(String) inputparameters[1];
+		String capture=driver.findElement(By.xpath(path)).getText(); 
+		
+		
+		if (text.equalsIgnoreCase(capture))
+		{
+			System.out.println("test case pass");
+			
+		}
+		else
+		{
+			System.out.println("test case fail");
+		}
+	}
 	
 
 	public static void main(String[]args)
@@ -100,8 +117,6 @@ public class SeleniumOpeartion
 											SeleniumOpeartion.sendTextOnUi(input6);		
 									
 									
-									
-									
 		//clickonElement("(//*[@class='a-button-input'])[1]");
 		
 		
@@ -110,6 +125,14 @@ public class SeleniumOpeartion
 				input7[0]="(//*[@class='a-button-input'])[1]";
 			
 			SeleniumOpeartion.clickonElement(input7);	
+			
+			
+			Object[] input8=new Object[2];
+			        input8[0]="Hello, Ganesh";
+			        input8[1]="//*[@id='nav-link-accountList-nav-line-1']";
+			        
+			        SeleniumOpeartion.validationByGetText(input8);
+			
 		
 	}
 
